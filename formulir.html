@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Biodata</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url(img/anime.jpg) no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+            margin: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            margin-bottom: 16px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            width: calc(100% - 20px);
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .radio-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .radio-group label {
+            margin-right: 20px;
+        }
+
+        input[type="submit"] {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background: #444;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                height: auto;
+                padding: 20px;
+            }
+
+            .form-container {
+                width: 100%;
+                padding: 20px;
+            }
+
+            input[type="text"],
+            input[type="date"],
+            textarea {
+                width: calc(100% - 20px);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form action="/submit-biodata" method="post">
+            <label for="nama">Nama Lengkap:</label>
+            <input type="text" id="nama" name="nama" required>
+
+            <label for="tanggal_lahir">Tanggal Lahir:</label>
+            <input type="date" id="tanggal_lahir" name="tanggal_lahir" required>
+
+            <label for="jenis_kelamin">Jenis Kelamin:</label>
+            <div class="radio-group">
+                <input type="radio" id="laki-laki" name="jenis_kelamin" value="Laki-laki" required>
+                <label for="laki-laki">Laki-laki</label>
+                <input type="radio" id="perempuan" name="jenis_kelamin" value="Perempuan">
+                <label for="perempuan">Perempuan</label>
+            </div>
+
+            <label for="hobi">Hobby:</label>
+            <input type="text" id="hobi" name="hobi" required>
+
+            <label for="alamat">Alamat:</label>
+            <textarea id="alamat" name="alamat" rows="4" cols="50" required></textarea>
+
+            <input type="submit" value="Kirim">
+        </form>
+    </div>
+</body>
+</html>
